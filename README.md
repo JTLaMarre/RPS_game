@@ -1,1 +1,1 @@
-# RPS_game
+basic Rock Paper scissors game used boot strap to make more mobile responsive. 

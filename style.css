@@ -1,0 +1,27 @@
+.userChoice{
+    float: left;
+    border:solid white;
+    border-radius: 50%;
+    margin: 20px;
+    padding: 10px;
+
+}
+.userChoice:hover{
+    border:solid goldenrod;
+}
+.userChoice:active{
+    border:solid black;
+    background-color: white;
+}
+.background{
+    color:white;
+    background-color: black;
+}
+
+.scoreBoard {
+    font-size: 40px !important;
+    color:white;
+}
+#msg{
+    color: white;
+}
