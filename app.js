@@ -3,12 +3,14 @@ var p = document.getElementById("p");
 var s = document.getElementById("s");
 var Score_display = document.getElementsByClassName("score_display");
 var score = document.getElementById("score");
+var compscore = document.getElementById("compscore");
 var msg = document.getElementById("msg");
 
 
 var comChoices = ["r", "p", "s"]
 function comChoose() {
     var choice = comChoices[Math.floor(Math.random() * 3)];
+
     return choice;
 }
 
@@ -20,6 +22,7 @@ function game(userChoice) {
         case "sp":
             msg.innerHTML = "You Win!";
             score.innerHTML = Number(score.innerHTML)+1;
+            compscore.innerHTML = Math.max(-1,0);
             break
         case "rr":
         case "pp":
@@ -29,8 +32,9 @@ function game(userChoice) {
         case "rp":
         case "ps":
         case "sr":
-            msg.innerHTML = "You lose -1 :( ...";
-            score.innerHTML-=1
+            msg.innerHTML = "You lose!";
+            score.innerHTML = Math.max(-1,0)
+            compscore.innerHTML = Number(score.innerHTML)+1;
             break
     }
 if (Number(score.innerHTML)===10)
