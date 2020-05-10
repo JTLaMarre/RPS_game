@@ -43,8 +43,9 @@ function game(userChoice) {
         case "pr":
         case "sp":
             msg.innerHTML = "You Win!";
-            score.innerHTML = Number(score.innerHTML) + 1;
             finalUser ++;
+            score.innerHTML = finalUser;
+
             break
         case "rr":
         case "pp":
@@ -55,8 +56,8 @@ function game(userChoice) {
         case "ps":
         case "sr":
             msg.innerHTML = "You lose!";
-            compscore.innerHTML = Number(score.innerHTML) + 1;
             finalComp++;
+            compscore.innerHTML = finalComp
             break
     }
 
