@@ -5,14 +5,36 @@ var Score_display = document.getElementsByClassName("score_display");
 var score = document.getElementById("score");
 var compscore = document.getElementById("compscore");
 var msg = document.getElementById("msg");
+var userVisual = document.getElementById('userVisual')
+var compVisual = document.getElementById('compVisual')
+var start = document.getElementById('start')
+var time = document.getElementById('time')
 
 
 var comChoices = ["r", "p", "s"]
 function comChoose() {
     var choice = comChoices[Math.floor(Math.random() * 3)];
+    switch (choice) {
+        case 'r':
+            compVisual.src = "https://img.icons8.com/color/48/000000/hand-rock.png"
+            compVisual.className = 'Vis'
+            break
+        case 'p':
+            compVisual.src = "https://img.icons8.com/officel/48/000000/hand.png"
+            compVisual.className = 'Vis'
+            break
+        case 's':
+            compVisual.src = "https://img.icons8.com/color/48/000000/hand-scissors.png"
+            compVisual.className = 'Vis'
+            break
+
+    }
 
     return choice;
 }
+
+var finalUser = 0
+var finalComp = 0
 
 function game(userChoice) {
     var cmp = comChoose();
@@ -21,8 +43,8 @@ function game(userChoice) {
         case "pr":
         case "sp":
             msg.innerHTML = "You Win!";
-            score.innerHTML = Number(score.innerHTML)+1;
-            compscore.innerHTML = Math.max(-1,0);
+            score.innerHTML = Number(score.innerHTML) + 1;
+            finalUser ++;
             break
         case "rr":
         case "pp":
@@ -33,19 +55,70 @@ function game(userChoice) {
         case "ps":
         case "sr":
             msg.innerHTML = "You lose!";
-            score.innerHTML = Math.max(-1,0)
-            compscore.innerHTML = Number(score.innerHTML)+1;
+            compscore.innerHTML = Number(score.innerHTML) + 1;
+            finalComp++;
             break
     }
-if (Number(score.innerHTML)===10)
-msg.innerHTML = "Made it to Ten you are a champ"
-}
-if(Number(score.innerHTML)===69){
-    msg.innerHTML ="Nice"
+
 }
 function main() {
-    r.addEventListener('click', function () { game("r") });
-    p.addEventListener('click', function () { game("p") });
-    s.addEventListener('click', function () { game("s") });
+    r.addEventListener('click', function () {
+        game("r")
+        ChoiceUserDisplay('r')
+    });
+    p.addEventListener('click', function () {
+        game("p")
+        ChoiceUserDisplay('p')
+    });
+    s.addEventListener('click', function () {
+        game("s")
+        ChoiceUserDisplay('s')
+    });
 }
+
+// function to show user and  comp scores 
+function ChoiceUserDisplay(userChoice) {
+    switch (userChoice) {
+        case 'r':
+            userVisual.src = "https://img.icons8.com/color/48/000000/hand-rock.png"
+            userVisual.className = 'Vis'
+            break
+        case 'p':
+            userVisual.src = "https://img.icons8.com/officel/48/000000/hand.png"
+            userVisual.className = 'Vis'
+            break
+        case 's':
+            userVisual.src = "https://img.icons8.com/color/48/000000/hand-scissors.png"
+            userVisual.className = 'Vis'
+            break
+
+    }
+}
+start.addEventListener('click', function () {
+    start.remove();
+    var seconds = 300
+
+    var gameInterval = setInterval(function () {
+        time.textContent = seconds + " seconds remaining";
+        seconds--;
+
+        console.log(seconds)
+
+        if (seconds === 0){
+            console.log(seconds)
+        time.textContent = "times up"
+        gameOver();
+        clearInterval(gameInterval)
+    }
+}, 1000)
+})
+
+function gameOver() {
+location.href = 'GameOver.html';
+}
+
+
+
+
+
 main();
