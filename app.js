@@ -1,19 +1,19 @@
-var r = document.getElementById("r");
-var p = document.getElementById("p");
-var s = document.getElementById("s");
-var Score_display = document.getElementsByClassName("score_display");
-var score = document.getElementById("score");
-var compscore = document.getElementById("compscore");
-var msg = document.getElementById("msg");
-var userVisual = document.getElementById('userVisual')
-var compVisual = document.getElementById('compVisual')
-var start = document.getElementById('start')
-var time = document.getElementById('time')
+const r = document.getElementById("r");
+const p = document.getElementById("p");
+const s = document.getElementById("s");
+const Score_display = document.getElementsByClassName("score_display");
+const score = document.getElementById("score");
+const compscore = document.getElementById("compscore");
+const msg = document.getElementById("msg");
+const userVisual = document.getElementById('userVisual')
+const compVisual = document.getElementById('compVisual')
+const start = document.getElementById('start')
+const time = document.getElementById('time')
 
 
-var comChoices = ["r", "p", "s"]
-function comChoose() {
-    var choice = comChoices[Math.floor(Math.random() * 3)];
+const comChoices = ["r", "p", "s"]
+const comChoose =()=> {
+    let choice = comChoices[Math.floor(Math.random() * 3)];
     switch (choice) {
         case 'r':
             compVisual.src = "https://img.icons8.com/color/48/000000/hand-rock.png"
@@ -33,11 +33,11 @@ function comChoose() {
     return choice;
 }
 
-var finalUser = 0
-var finalComp = 0
+let finalUser = 0
+let finalComp = 0
 
-function game(userChoice) {
-    var cmp = comChoose();
+const game = userChoice => {
+    let cmp = comChoose();
     switch (userChoice + cmp) {
         case "rs":
         case "pr":
@@ -62,7 +62,7 @@ function game(userChoice) {
     }
 
 }
-function main() {
+const main=()=> {
     r.addEventListener('click', function () {
         game("r")
         ChoiceUserDisplay('r')
@@ -78,7 +78,7 @@ function main() {
 }
 
 // function to show user and  comp scores 
-function ChoiceUserDisplay(userChoice) {
+const ChoiceUserDisplay=userChoice=> {
     switch (userChoice) {
         case 'r':
             userVisual.src = "https://img.icons8.com/color/48/000000/hand-rock.png"
@@ -97,9 +97,9 @@ function ChoiceUserDisplay(userChoice) {
 }
 start.addEventListener('click', function () {
     start.remove();
-    var seconds = 300
+    let seconds = 300
 
-    var gameInterval = setInterval(function () {
+    let gameInterval = setInterval(function () {
         time.textContent = seconds + " seconds remaining";
         seconds--;
 
