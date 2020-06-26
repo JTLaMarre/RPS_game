@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <link rel="stylesheet" href="./css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap" rel="stylesheet">
+</head>
+
+<body class="background">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <header>
+                    <h1 class="mr-auto text-center">ROCK PAPER SCISSOR!!! </h1>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm mr-auto d-flex justify-content-center">
+                <div class="userChoice" id="r">
+                    <i class="far fa-hand-rock fa-5x"></i>
+                </div>
+                <div class="userChoice" id="p">
+                    <i class="far fa-hand-paper fa-5x"></i>
+                </div>
+                <div class="userChoice" id="s">
+                    <i class="far fa-hand-scissors fa-5x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="score_display text-center mr-auto col-12">
+                <h1 id="msg" class="text-center"></h1>
+                <h1 class="scorBoard text-center mr-auto">Score</h1>
+                <h2  class="scorBoard text-center mr-auto d-flex justify-content-center"> User <span id="score">0</span>:<span id="compscore">0</span>Comp</h2>
+                <h2 class="mr-auto d-flex justify-content-center"><img src = ' ' id ='userVisual'class='mr-auto'> <img src = '' id ='compVisual'class='mr-auto' > </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class ='text-center mr-auto col-12' >
+                <button class = 'btn btn-danger' id= 'start' >Start</button>
+                <h1 id='time' ></h1>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
